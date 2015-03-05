@@ -1,0 +1,52 @@
+#define MODULE
+#include <linux/module.h>
+#include <linux/init.h>
+
+MODULE_LICENSE("GPL");
+MODULE_AUTHOR("maxime.bittan@gmail.com and redha.gouicem@gmail.com, 2015");
+MODULE_DESCRIPTION("LED and button module for cross compiling");
+
+static int ledparam, btnparam;
+ 
+static struct miscdevice ledbtn_dev;
+
+static int __init mon_module_init(void)
+{
+  printk(KERN_DEBUG "Hello World !\n");
+  return 0;
+}
+
+static void __exit mon_module_cleanup(void)
+{
+  printk(KERN_DEBUG "Goodbye World!\n");
+}
+
+static int my_open_function (struct inode * inode, struct file * file){
+  printk(KERN_DEBUG "open()\n");
+  return 0;
+}
+
+static ssize_t my_read_function(struct file * file, char * buf, size_t count, loff_t * ppos){
+  printk(KERN_DEBUG "read()\n");
+  return 0;
+}
+
+static ssize_t my_write_function(struct file * file, const char * buf, size_t count, loff_t * ppos){
+  printk(KERN_DEBUG "write()\n");
+  return 0;
+}
+
+static int my_release_function(struct inode * inode, struct file * file){
+  printk(KERN_DEBUG "close()\n");
+  return 0;
+}
+
+struct file_operations fops = {.open = myopen_function,
+			       .read = my_read_function,
+			       .write = my_write_function,
+			       .release = my_release_function };
+
+module_param(ledparam, int, 0);
+module_param(btnparam, int 0);
+module_init(mon_module_init);
+module_exit(mon_module_cleanup);

@@ -1,0 +1,1 @@
+cmd_/home/redha/m1/peri/lab2/e1/ledbtnC1J1A.ko := bcm2708hardfp-ld -EL -r  -T ./scripts/module-common.lds --build-id  -o /home/redha/m1/peri/lab2/e1/ledbtnC1J1A.ko /home/redha/m1/peri/lab2/e1/ledbtnC1J1A.o /home/redha/m1/peri/lab2/e1/ledbtnC1J1A.mod.o

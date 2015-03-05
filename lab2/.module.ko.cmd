@@ -1,0 +1,1 @@
+cmd_/users/enseig/franck/peri/lab2/module.ko := bcm2708hardfp-ld -EL -r  -T ./scripts/module-common.lds --build-id  -o /users/enseig/franck/peri/lab2/module.ko /users/enseig/franck/peri/lab2/module.o /users/enseig/franck/peri/lab2/module.mod.o
